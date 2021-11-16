@@ -1,0 +1,6 @@
+framework module Pods_Felician_Ishark_cobsccomp192p049Tests {
+  umbrella header "Pods-Felician_Ishark_cobsccomp192p049Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
