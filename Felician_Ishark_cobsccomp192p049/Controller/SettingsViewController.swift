@@ -31,6 +31,14 @@ class SettingsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    @IBAction func btnLogout(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                        let newViewController = storyBoard.instantiateViewController(withIdentifier: "homeTbBarController") as! UITabBarController
+                        newViewController.modalPresentationStyle = .fullScreen
+                                self.present(newViewController, animated: true, completion: nil)
+    }
+    
     func getUserDetails() -> Void {
         let userID = Auth.auth().currentUser?.uid
         let docRef = self.db?.collection("User").document(userID!)

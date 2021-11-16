@@ -230,7 +230,7 @@
         <!--Login-->
         <scene sceneID="43V-BA-HRV">
             <objects>
-                <viewController id="QC5-GT-OpY" customClass="LoginViewController" customModule="Felician_Ishark_cobsccomp192p049" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginTbController" id="QC5-GT-OpY" customClass="LoginViewController" customModule="Felician_Ishark_cobsccomp192p049" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DdK-FX-H0f">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -345,7 +345,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bSD-cL-Ndw">
+                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bSD-cL-Ndw">
                                 <rect key="frame" x="20" y="203" width="374" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Kyv-he-dNc"/>
@@ -359,7 +359,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wdB-cS-eWU">
+                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wdB-cS-eWU">
                                 <rect key="frame" x="20" y="314" width="374" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="B5K-9i-4JJ"/>
@@ -373,7 +373,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sJA-8G-wyu">
+                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sJA-8G-wyu">
                                 <rect key="frame" x="20" y="425" width="374" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="zqF-sw-HrR"/>
@@ -387,7 +387,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TZp-0r-7zV">
+                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TZp-0r-7zV">
                                 <rect key="frame" x="20" y="536" width="374" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="216-6e-Zgy"/>
@@ -395,16 +395,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bnl-1q-g2v">
-                                <rect key="frame" x="171" y="632" width="73" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bnl-1q-g2v">
+                                <rect key="frame" x="160" y="626" width="94" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Log out"/>
+                                <connections>
+                                    <action selector="btnLogout:" destination="mtT-JD-1uU" eventType="touchUpInside" id="sNp-VF-85L"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="U0q-1J-qbu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="U0q-1J-qbu" firstAttribute="trailing" secondItem="Bnl-1q-g2v" secondAttribute="trailing" constant="160" id="1BM-IP-hf5"/>
+                            <constraint firstItem="Bnl-1q-g2v" firstAttribute="top" secondItem="TZp-0r-7zV" secondAttribute="bottom" constant="40" id="1YP-PP-V3o"/>
                             <constraint firstItem="lrh-ir-zSW" firstAttribute="leading" secondItem="U0q-1J-qbu" secondAttribute="leading" constant="20" id="26G-th-eHf"/>
                             <constraint firstItem="oxR-Bk-Qkx" firstAttribute="leading" secondItem="U0q-1J-qbu" secondAttribute="leading" constant="20" id="4Rk-xa-iNk"/>
                             <constraint firstItem="U0q-1J-qbu" firstAttribute="trailing" secondItem="sFs-mi-4wP" secondAttribute="trailing" constant="300" id="4yh-mk-9re"/>
@@ -422,6 +426,7 @@
                             <constraint firstItem="TZp-0r-7zV" firstAttribute="leading" secondItem="U0q-1J-qbu" secondAttribute="leading" constant="20" id="XA4-9Z-T12"/>
                             <constraint firstItem="bSD-cL-Ndw" firstAttribute="top" secondItem="f0k-kD-QfK" secondAttribute="bottom" constant="20" id="XmC-dY-Znc"/>
                             <constraint firstItem="U0q-1J-qbu" firstAttribute="trailing" secondItem="sJA-8G-wyu" secondAttribute="trailing" constant="20" id="YzF-xx-can"/>
+                            <constraint firstItem="Bnl-1q-g2v" firstAttribute="leading" secondItem="U0q-1J-qbu" secondAttribute="leading" constant="160" id="aRg-U1-Ddy"/>
                             <constraint firstItem="wdB-cS-eWU" firstAttribute="leading" secondItem="U0q-1J-qbu" secondAttribute="leading" constant="20" id="bmn-N9-t7k"/>
                             <constraint firstItem="wdB-cS-eWU" firstAttribute="top" secondItem="oxR-Bk-Qkx" secondAttribute="bottom" constant="20" id="d1F-2V-CMn"/>
                             <constraint firstItem="utP-BU-ceO" firstAttribute="top" secondItem="U0q-1J-qbu" secondAttribute="top" constant="35" id="dQz-fa-glk"/>
@@ -511,7 +516,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="4c9-P4-Khc">
             <objects>
-                <tabBarController id="Y9C-9E-ej5" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="homeTbBarController" id="Y9C-9E-ej5" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="29L-aK-KVY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -544,7 +549,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="8h5-NK-5Wn"/>
+        <segue reference="sne-yK-SYH"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="book.closed" catalog="system" width="115" height="128"/>
