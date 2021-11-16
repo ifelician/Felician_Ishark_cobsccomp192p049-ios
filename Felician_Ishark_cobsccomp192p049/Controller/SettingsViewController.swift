@@ -40,6 +40,7 @@ class SettingsViewController: UIViewController {
             self.txtName.text = String(document.get("Name") as! String)
             self.txtNIC.text = String(document.get("NIC") as! String)
             self.txtVehicleNo.text = String(document.get("VehicalNo") as! String)
+            self.txtRegistNo.text = String(document.get("RegistrationNo") as! String)
           } else {
             print("Document does not exist in cache")
           }
