@@ -14,6 +14,7 @@
 		A616DB3E2741076B00869E41 /* InputValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A616DB3D2741076B00869E41 /* InputValidator.swift */; };
 		A616DB4027410CD100869E41 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A616DB3F27410CD100869E41 /* SessionManager.swift */; };
 		A6393EC32742D8C300E91586 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6393EC22742D8C300E91586 /* SettingsViewController.swift */; };
+		A6393EC527443A3000E91586 /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6393EC427443A3000E91586 /* BookingViewController.swift */; };
 		A6926150273ED71000B22C52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A692614F273ED71000B22C52 /* AppDelegate.swift */; };
 		A6926152273ED71000B22C52 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6926151273ED71000B22C52 /* SceneDelegate.swift */; };
 		A6926154273ED71000B22C52 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6926153273ED71000B22C52 /* ViewController.swift */; };
@@ -57,6 +58,7 @@
 		A616DB3D2741076B00869E41 /* InputValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputValidator.swift; sourceTree = "<group>"; };
 		A616DB3F27410CD100869E41 /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		A6393EC22742D8C300E91586 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A6393EC427443A3000E91586 /* BookingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
 		A692614C273ED71000B22C52 /* Felician_Ishark_cobsccomp192p049.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Felician_Ishark_cobsccomp192p049.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A692614F273ED71000B22C52 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A6926151273ED71000B22C52 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				A616DB382740E48C00869E41 /* LoginViewController.swift */,
 				A616DB3A2740F6CC00869E41 /* RegisterViewController.swift */,
 				A6393EC22742D8C300E91586 /* SettingsViewController.swift */,
+				A6393EC427443A3000E91586 /* BookingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				A6926150273ED71000B22C52 /* AppDelegate.swift in Sources */,
 				A616DB4027410CD100869E41 /* SessionManager.swift in Sources */,
 				A6926152273ED71000B22C52 /* SceneDelegate.swift in Sources */,
+				A6393EC527443A3000E91586 /* BookingViewController.swift in Sources */,
 				A6393EC32742D8C300E91586 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

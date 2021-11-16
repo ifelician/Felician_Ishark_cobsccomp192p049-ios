@@ -454,25 +454,67 @@
         <!--Booking-->
         <scene sceneID="sep-fK-yWh">
             <objects>
-                <viewController id="0rz-Zc-Zvi" sceneMemberID="viewController">
+                <viewController id="0rz-Zc-Zvi" customClass="BookingViewController" customModule="Felician_Ishark_cobsccomp192p049" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="K1H-T4-gSV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="book" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJ9-Vo-OKi">
-                                <rect key="frame" x="186" y="334" width="39" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bookings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wJ9-Vo-OKi">
+                                <rect key="frame" x="20" y="79" width="131" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Registration No." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rib-kv-c9y">
+                                <rect key="frame" x="20" y="135" width="122" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q8L-hM-mBV">
+                                <rect key="frame" x="20" y="164" width="194" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vehicle No." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jy5-le-tR5">
+                                <rect key="frame" x="20" y="214" width="94" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bx5-Jn-dpy">
+                                <rect key="frame" x="20" y="243" width="194" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0ir-ps-H9E"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wJ9-Vo-OKi" firstAttribute="top" secondItem="0ir-ps-H9E" secondAttribute="top" constant="35" id="1DY-Dc-9Z5"/>
+                            <constraint firstItem="0ir-ps-H9E" firstAttribute="trailing" secondItem="Jy5-le-tR5" secondAttribute="trailing" constant="300" id="6yW-JL-Z65"/>
+                            <constraint firstItem="wJ9-Vo-OKi" firstAttribute="leading" secondItem="0ir-ps-H9E" secondAttribute="leading" constant="20" id="KjM-sx-CVn"/>
+                            <constraint firstItem="q8L-hM-mBV" firstAttribute="leading" secondItem="0ir-ps-H9E" secondAttribute="leading" constant="20" id="RRX-4a-OUH"/>
+                            <constraint firstItem="q8L-hM-mBV" firstAttribute="top" secondItem="Rib-kv-c9y" secondAttribute="bottom" constant="8" id="RsZ-jt-nKt"/>
+                            <constraint firstItem="bx5-Jn-dpy" firstAttribute="leading" secondItem="0ir-ps-H9E" secondAttribute="leading" constant="20" id="SHj-pn-3mp"/>
+                            <constraint firstItem="Jy5-le-tR5" firstAttribute="leading" secondItem="0ir-ps-H9E" secondAttribute="leading" constant="20" id="T9c-wW-nRB"/>
+                            <constraint firstItem="0ir-ps-H9E" firstAttribute="trailing" secondItem="wJ9-Vo-OKi" secondAttribute="trailing" constant="263" id="ckr-em-9Sn"/>
+                            <constraint firstItem="Rib-kv-c9y" firstAttribute="leading" secondItem="0ir-ps-H9E" secondAttribute="leading" constant="20" id="fcJ-sa-Ffj"/>
+                            <constraint firstItem="0ir-ps-H9E" firstAttribute="trailing" secondItem="Rib-kv-c9y" secondAttribute="trailing" constant="272" id="gnc-mY-qjY"/>
+                            <constraint firstItem="0ir-ps-H9E" firstAttribute="trailing" secondItem="bx5-Jn-dpy" secondAttribute="trailing" constant="200" id="jOr-lK-t5E"/>
+                            <constraint firstItem="0ir-ps-H9E" firstAttribute="trailing" secondItem="q8L-hM-mBV" secondAttribute="trailing" constant="200" id="lAG-2B-llV"/>
+                            <constraint firstItem="bx5-Jn-dpy" firstAttribute="top" secondItem="Jy5-le-tR5" secondAttribute="bottom" constant="8" id="syz-XN-LgD"/>
+                            <constraint firstItem="Jy5-le-tR5" firstAttribute="top" secondItem="q8L-hM-mBV" secondAttribute="bottom" constant="16" id="tuU-nk-oZz"/>
+                            <constraint firstItem="Rib-kv-c9y" firstAttribute="top" secondItem="wJ9-Vo-OKi" secondAttribute="bottom" constant="20" id="zXn-1P-pjd"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Booking" image="book.closed" catalog="system" id="Odc-Mh-lui">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="txtRegNo" destination="q8L-hM-mBV" id="KIS-fc-WXL"/>
+                        <outlet property="txtVehiNo" destination="bx5-Jn-dpy" id="aSn-qP-zta"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mBn-Sb-2Uh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
