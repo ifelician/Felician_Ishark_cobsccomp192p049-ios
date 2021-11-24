@@ -27,7 +27,22 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.db = Firestore .firestore()
+        
+        //Looks for single or multiple taps.
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+        
+        GetNextRegId();
+        
+        
         // Do any additional setup after loading the view.
+    }
+    
+    //Calls this function when the tap is recognized.
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     @IBAction func btnRegister(_ sender: Any) {
@@ -107,6 +122,27 @@ class RegisterViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func GetNextRegId() -> Void {
+           var MaxId = 0
+        
+           let citiesRef = db!.collection("User")
+        
+           citiesRef.order(by: "RegistrationNo", descending: true).limit(to: 1).getDocuments(){ (querySnapshot, err) in
+
+               if let err = err {
+                   print("Error getting documents: \(err)")
+               } else {
+                   for document in querySnapshot!.documents {
+                       MaxId  =   Int(document.get("RegistrationNo") as! String) ?? 0
+
+                   }
+                   MaxId = (MaxId + 1)
+                   self.txtRegNo.text = String(MaxId)
+                   self.txtEmail.becomeFirstResponder()
+               }
+           }
+       }
 }
 
 

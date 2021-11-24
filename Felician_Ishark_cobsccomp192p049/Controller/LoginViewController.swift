@@ -21,7 +21,18 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         ref = Database.database().reference()
         
+        //Looks for single or multiple taps.
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        
+            view.addGestureRecognizer(tap)
+        
         // Do any additional setup after loading the view.
+    }
+    
+    //Calls this function when the tap is recognized.
+    @objc func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     @IBAction func btnForgetPwd(_ sender: Any) {
