@@ -9,10 +9,14 @@ import UIKit
 import Foundation
 import CoreLocation
 import MapKit
+import Firebase
+import Loaf
+
 
 class ReserveViewController: UIViewController, CLLocationManagerDelegate {
 
     let locationManager = CLLocationManager()
+    var db = Firestore .firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +41,7 @@ class ReserveViewController: UIViewController, CLLocationManagerDelegate {
         //My location
         let myLocation = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
         //My Next Destination
-        let myNextDestination = CLLocation(latitude: 6.906762440116351, longitude: 79.87069437521194)
+        let myNextDestination = CLLocation(latitude: 6.906034032777163, longitude: 79.87083251180945)
         //Finding my distance to my next destination (in km)
         let distance = myLocation.distance(from: myNextDestination) / 1000
         
@@ -48,24 +52,39 @@ class ReserveViewController: UIViewController, CLLocationManagerDelegate {
         
         if(distance > 1)
                 {
-                    ShowMessage(msg: "You need 1km range to Reserve your Parking")
+                    //ShowMessage(msg: "You need 1km range to Reserve your Parking")
+                    Loaf("You need 1km range to Reserve your Parking",state:.warning,sender:self).show()
                     return
                 }
                 else
                 {
-                    var ID : String = AvailableBookingViewController.typeProperty;
+                    var ID : String = BookingViewController.mySlotID;
                     // Update one field, creating the document if it does not exist.
-                    self.db.collection("Slots").document(ID).setData([ "SlotStatus": "2" ], merge: true) { err in
+                    self.db.collection("Slots").document(ID).setData([ "SlotStatus": "R" ], merge: true) { err in
                         if ( err == nil )
                         {
-                            self.ShowMessage(msg:"Success.");
+                            //self.ShowMessage(msg:"Success.");
+                            Loaf("Success.",state:.success,sender:self).show()
+                            
+                          
                         }
                         else
                         {
-                            self.ShowMessage(msg:"Failed.");
+                            //self.ShowMessage(msg:"Failed.");
+                            Loaf("Failed.",state:.error,sender:self).show()
+                            
+                    
                         }
+                        
                     }
+                    
+                    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                                    let newViewController = storyBoard.instantiateViewController(withIdentifier: "tbBarController") as! UITabBarController
+                                    newViewController.modalPresentationStyle = .fullScreen
+                                            self.present(newViewController, animated: true, completion: nil)
                 }
+        
+        
         
     }
 }

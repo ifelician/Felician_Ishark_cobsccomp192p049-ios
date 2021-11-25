@@ -16,10 +16,10 @@ class BookingViewController: UIViewController , UITableViewDelegate, UITableView
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var btnLocate: UIButton!
-    
     public var db: Firestore?
+    static var mySlotID = ""
     
+    var SlotID  = [String]()
     var SlotName = [String]()
     var SlotStatus = [String]()
     var VehicalNo = [String]()
@@ -40,6 +40,7 @@ class BookingViewController: UIViewController , UITableViewDelegate, UITableView
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
+                    self.SlotID.append(document.get("SlotID") as! String)
                     self.SlotName.append(document.get("SlotName") as! String)
                     self.SlotStatus.append(document.get("SlotStatus") as! String)
                     //self.VehicalNo.append(document.get("VehicalNo") as! String)
@@ -47,16 +48,10 @@ class BookingViewController: UIViewController , UITableViewDelegate, UITableView
                 }
             }
         }
-        
-       
         getRegVehiNo()
         // Do any additional setup after loading the view.
     }
     
-    
-    @IBAction func btnLocate_click(_ sender: Any) {
-       
-    }
     
     func getRegVehiNo() -> Void {
         let userID = Auth.auth().currentUser?.uid
@@ -90,10 +85,21 @@ class BookingViewController: UIViewController , UITableViewDelegate, UITableView
         cell.SlotName.text = self.SlotName[indexPath.row]
         cell.SlotStatus.text = self.SlotStatus[indexPath.row]
         //cell.VehicalNo.text = self.VehicalNo[indexPath.row]
-        cell.btnReserve.tag = indexPath.row;
+        cell.btnReserve.tag = Int(self.SlotID[indexPath.row])! ;
         cell.btnReserve.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        cell.btnBook.tag = indexPath.row;
+        
+        cell.btnBook.tag = Int(self.SlotID[indexPath.row])!;
         cell.btnBook.addTarget(self, action: #selector(buttonTapped2), for: .touchUpInside)
+        
+        if(self.SlotStatus[indexPath.row] == "R")
+              {
+                  cell.btnBook.isHidden = true
+              }
+       else if(self.SlotStatus[indexPath.row] == "B")
+              {
+                  cell.btnReserve.isHidden = true
+              }
+        
         cell.layer.borderWidth = 2
         cell.layer.cornerRadius = 8
         cell.clipsToBounds = true
@@ -105,9 +111,11 @@ class BookingViewController: UIViewController , UITableViewDelegate, UITableView
           let alrt = UIAlertController(title: "test", message: "test", preferredStyle: .alert)
           alrt.addAction(UIAlertAction(title: "ok",style: .cancel,handler: nil))
           self.present(alrt, animated: true)
+          BookingViewController.mySlotID = String(_sender.tag);
       }
       @objc func buttonTapped2(_sender: UIButton)
       {
+          BookingViewController.mySlotID = String(_sender.tag);
           let alrt = UIAlertController(title: "test2", message: "test2", preferredStyle: .alert)
 
           alrt.addAction(UIAlertAction(title: "ok",style: .cancel,handler: nil))

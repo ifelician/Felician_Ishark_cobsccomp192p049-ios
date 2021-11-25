@@ -32,6 +32,7 @@
 		A6926173273ED71200B22C52 /* Felician_Ishark_cobsccomp192p049UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6926172273ED71200B22C52 /* Felician_Ishark_cobsccomp192p049UITestsLaunchTests.swift */; };
 		A692618027401C7D00B22C52 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A692617F27401C7D00B22C52 /* GoogleService-Info.plist */; };
 		A6C5C94D2741439B009F8DF4 /* EntityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C5C94C2741439B009F8DF4 /* EntityModel.swift */; };
+		A6F0287327501801009B3D3A /* QRUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F0287227501800009B3D3A /* QRUploadViewController.swift */; };
 		F59E28C6831B2D5DA2E2DE66 /* Pods_Felician_Ishark_cobsccomp192p049Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A184FA240EAADF693CD24217 /* Pods_Felician_Ishark_cobsccomp192p049Tests.framework */; };
 /* End PBXBuildFile section */
 
@@ -86,6 +87,7 @@
 		A6926172273ED71200B22C52 /* Felician_Ishark_cobsccomp192p049UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Felician_Ishark_cobsccomp192p049UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A692617F27401C7D00B22C52 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A6C5C94C2741439B009F8DF4 /* EntityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityModel.swift; sourceTree = "<group>"; };
+		A6F0287227501800009B3D3A /* QRUploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRUploadViewController.swift; sourceTree = "<group>"; };
 		ABA8260A42AF3E6CB92DF380 /* Pods-Felician_Ishark_cobsccomp192p049Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Felician_Ishark_cobsccomp192p049Tests.debug.xcconfig"; path = "Target Support Files/Pods-Felician_Ishark_cobsccomp192p049Tests/Pods-Felician_Ishark_cobsccomp192p049Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		EBB07D390D5231543F57DC6B /* Pods-Felician_Ishark_cobsccomp192p049.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Felician_Ishark_cobsccomp192p049.debug.xcconfig"; path = "Target Support Files/Pods-Felician_Ishark_cobsccomp192p049/Pods-Felician_Ishark_cobsccomp192p049.debug.xcconfig"; sourceTree = "<group>"; };
 		FA25ED68E965A2C2C97C9826 /* Pods-Felician_Ishark_cobsccomp192p049-Felician_Ishark_cobsccomp192p049UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Felician_Ishark_cobsccomp192p049-Felician_Ishark_cobsccomp192p049UITests.debug.xcconfig"; path = "Target Support Files/Pods-Felician_Ishark_cobsccomp192p049-Felician_Ishark_cobsccomp192p049UITests/Pods-Felician_Ishark_cobsccomp192p049-Felician_Ishark_cobsccomp192p049UITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				A6393EC7274565DB00E91586 /* HomeViewController.xib */,
 				A6393ED327465B4800E91586 /* QRViewController.swift */,
 				A66FBA33274EC0C500C84AAA /* ReserveViewController.swift */,
+				A6F0287227501800009B3D3A /* QRUploadViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				A6926152273ED71000B22C52 /* SceneDelegate.swift in Sources */,
 				A6393EC527443A3000E91586 /* BookingViewController.swift in Sources */,
 				A6393ED227461B8500E91586 /* BookingCells.swift in Sources */,
+				A6F0287327501801009B3D3A /* QRUploadViewController.swift in Sources */,
 				A6393EC32742D8C300E91586 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

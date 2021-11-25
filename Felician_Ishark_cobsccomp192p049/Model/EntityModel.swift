@@ -17,3 +17,12 @@ struct User {
 }
 
 
+struct Slots {
+    var SlotName: String?
+    var SlotStatus: String?
+    var AssignUser: String?
+    var VehicalNo: String?
+    var SlotTime: String?
+    var SlotType: String?
+}
+

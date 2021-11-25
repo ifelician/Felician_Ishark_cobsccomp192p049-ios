@@ -12,6 +12,9 @@ import Loaf
 
 class QRViewController: UIViewController {
 
+    @IBOutlet weak var lblErrorDesc: UILabel!
+    @IBOutlet weak var btnGallery: UIButton!
+    
     var captureSession = AVCaptureSession()
     var db = Firestore .firestore()
 
@@ -19,20 +22,29 @@ class QRViewController: UIViewController {
     var qrCodeFrameView: UIView?
     override func viewDidLoad() {
         super.viewDidLoad()
+        lblErrorDesc.isHidden = true
+        btnGallery.isHidden = true
         // Get the back-facing camera for capturing videos
         let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera], mediaType: AVMediaType.video, position: .back)
 
 
-        guard let captureDevice = deviceDiscoverySession.devices.first else {
-
-            print("Failed to get the camera device")
+//        guard let captureDevice = deviceDiscoverySession.devices.first else {
+//
+//            print("Failed to get the camera device")
+//            return
+//        }
+        
+        let captureDevice = deviceDiscoverySession.devices.first
+        if(captureDevice == nil)
+        {
+            lblErrorDesc.isHidden = false
+            btnGallery.isHidden = false
             return
         }
         do {
             // Get an instance of the AVCaptureDeviceInput class using the previous device object.
 
-            let input = try AVCaptureDeviceInput(device: captureDevice)
-            // Set the input device on the capture session.
+            let input = try AVCaptureDeviceInput(device: captureDevice!)            // Set the input device on the capture session.
             captureSession.addInput(input)
             // Initialize a AVCaptureMetadataOutput object and set it as the output device to the capture session.
 
