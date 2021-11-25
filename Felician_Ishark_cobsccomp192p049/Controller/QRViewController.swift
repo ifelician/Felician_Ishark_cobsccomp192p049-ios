@@ -16,7 +16,7 @@ class QRViewController: UIViewController {
     @IBOutlet weak var btnGallery: UIButton!
     
     var captureSession = AVCaptureSession()
-    var db = Firestore .firestore()
+    var db = Firestore.firestore()
 
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var qrCodeFrameView: UIView?

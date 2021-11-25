@@ -627,6 +627,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Open gallery."/>
+                                <connections>
+                                    <segue destination="2tb-G5-44e" kind="presentation" id="EpA-V2-rBI"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qXu-5j-F13"/>
@@ -645,6 +648,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I9b-af-fFp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2046" y="823"/>
+        </scene>
+        <!--Upload View Controller-->
+        <scene sceneID="MXc-5t-iKx">
+            <objects>
+                <viewController id="2tb-G5-44e" customClass="QRUploadViewController" customModule="Felician_Ishark_cobsccomp192p049" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KYj-Rd-AzW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="M4l-NN-Wwb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ih7-Bj-syN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2928" y="840"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Zd6-MW-YoD">

@@ -10,8 +10,10 @@ import Firebase
 import Loaf
 
 class QRUploadViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate  {
+    
     var imagePicker = UIImagePickerController()
-    var db = Firestore .firestore()
+    var db = Firestore.firestore()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let type = UIImagePickerController.SourceType.photoLibrary
@@ -33,7 +35,7 @@ class QRUploadViewController: UIViewController, UIImagePickerControllerDelegate,
                    let ciImage = CIImage(image: pickedImage),
                    let features = detector.features(in: ciImage) as? [CIQRCodeFeature] else { return }
              let qrCodeLink = features.reduce("") { $0 + ($1.messageString ?? "") }
-             self.db.collection("Slots").document(qrCodeLink).setData([ "SlotStatus": "3" ], merge: true) { err in
+             self.db.collection("Slots").document(qrCodeLink).setData([ "SlotStatus": "B" ], merge: true) { err in
                  if ( err == nil )
                  {
                      //self.ShowMessage(msg:"Success.");
@@ -46,12 +48,17 @@ class QRUploadViewController: UIViewController, UIImagePickerControllerDelegate,
                      Loaf("Failed.",state:.error,sender:self).show()
                  }
              }
+             
+             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                             let newViewController = storyBoard.instantiateViewController(withIdentifier: "tbBarController") as! UITabBarController
+                             newViewController.modalPresentationStyle = .fullScreen
+                                     self.present(newViewController, animated: true, completion: nil)
          }
     
-         func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
-         {
-             print("Canceled.")
-         }
+   func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
+   {
+       print("Canceled.")
+   }
     
     func ShowMessage(msg : String) -> Void {
           let alert = UIAlertController(title: "Info", message: msg, preferredStyle: UIAlertController.Style.alert)
