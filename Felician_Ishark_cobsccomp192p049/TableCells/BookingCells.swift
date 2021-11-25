@@ -16,10 +16,14 @@ public class MyBookingCell : UITableViewCell
     @IBOutlet weak var SlotStatus: UILabel!
     @IBOutlet weak var btnReserve: UIButton!
     @IBOutlet weak var btnBook: UIButton!
+    @IBOutlet weak var btnCancel: UIButton!
     
     @IBAction func btnReserve_click(_ sender: Any) {
     }
     @IBAction func btnBooking_click(_ sender: Any) {
+    }
+    
+    @IBAction func btnCancelClick(_ sender: Any) {
     }
     
     

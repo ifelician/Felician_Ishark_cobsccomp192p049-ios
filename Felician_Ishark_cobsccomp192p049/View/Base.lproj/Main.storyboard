@@ -543,6 +543,16 @@
                                                         <segue destination="mNY-9Q-TBq" kind="presentation" id="hJ8-7Z-5ec"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ytb-RP-QOj">
+                                                    <rect key="frame" x="278" y="11" width="69" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="tinted" title="Cancel"/>
+                                                    <connections>
+                                                        <action selector="btnCancelClick:" destination="LcJ-Bj-ymA" eventType="touchUpInside" id="96Q-b3-wZt"/>
+                                                        <segue destination="VkZ-bp-ChI" kind="show" id="sBW-7L-yMS"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="l2b-5s-Vtg" secondAttribute="trailing" constant="324" id="0PO-GJ-CUA"/>
@@ -565,6 +575,7 @@
                                             <outlet property="SlotName" destination="l2b-5s-Vtg" id="Km2-3T-ry2"/>
                                             <outlet property="SlotStatus" destination="r6d-c3-QMa" id="sBw-da-92I"/>
                                             <outlet property="btnBook" destination="QJF-6H-9JL" id="vdv-o5-gyE"/>
+                                            <outlet property="btnCancel" destination="ytb-RP-QOj" id="35c-WU-MDW"/>
                                             <outlet property="btnReserve" destination="A7V-lD-sku" id="0JK-Uv-Wzk"/>
                                         </connections>
                                     </tableViewCell>
@@ -628,7 +639,8 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Open gallery."/>
                                 <connections>
-                                    <segue destination="2tb-G5-44e" kind="presentation" id="EpA-V2-rBI"/>
+                                    <action selector="btnGalleryClick:" destination="VkZ-bp-ChI" eventType="touchUpInside" id="PJc-9u-WgG"/>
+                                    <segue destination="2tb-G5-44e" kind="presentation" id="KU1-Ip-DaW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -656,13 +668,43 @@
                     <view key="view" contentMode="scaleToFill" id="KYj-Rd-AzW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="qrcode" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="IfR-ug-MXJ">
+                                <rect key="frame" x="20" y="171" width="374" height="415"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iVP-z0-lDq">
+                                <rect key="frame" x="142" y="620" width="132" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="Confirm Booking"/>
+                                <connections>
+                                    <action selector="btnConfirmClick:" destination="2tb-G5-44e" eventType="touchUpInside" id="YpY-mc-QB9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDB-sw-xhi">
+                                <rect key="frame" x="172" y="677" width="72" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Re take"/>
+                                <connections>
+                                    <action selector="btnRetakeClick:" destination="2tb-G5-44e" eventType="touchUpInside" id="IsZ-bE-fRe"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="M4l-NN-Wwb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="ImgQR" destination="IfR-ug-MXJ" id="vI4-Km-vfS"/>
+                        <outlet property="btnConfirm" destination="iVP-z0-lDq" id="zrT-GW-08S"/>
+                        <outlet property="btnRetake" destination="nDB-sw-xhi" id="6lR-sw-m55"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ih7-Bj-syN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2928" y="840"/>
+            <point key="canvasLocation" x="2926.0869565217395" y="839.73214285714278"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Zd6-MW-YoD">
@@ -816,6 +858,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="8h5-NK-5Wn"/>
+        <segue reference="mNj-5W-ZVV"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="book.closed" catalog="system" width="115" height="128"/>
@@ -823,6 +866,7 @@
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="parking" width="170.5" height="170.5"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <image name="qrcode" catalog="system" width="128" height="114"/>
         <image name="tray.and.arrow.down" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -10,13 +10,15 @@ import AVFoundation
 import Firebase
 import Loaf
 
-class QRViewController: UIViewController {
+class QRViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate  {
 
     @IBOutlet weak var lblErrorDesc: UILabel!
     @IBOutlet weak var btnGallery: UIButton!
     
     var captureSession = AVCaptureSession()
     var db = Firestore.firestore()
+    
+    var imagePicker = UIImagePickerController()
 
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var qrCodeFrameView: UIView?
@@ -76,6 +78,58 @@ class QRViewController: UIViewController {
         
     }
     
+    @IBAction func btnGalleryClick(_ sender: Any) {
+//        let type = UIImagePickerController.SourceType.photoLibrary
+//                guard UIImagePickerController.isSourceTypeAvailable(type) else { return }
+//                let picker = UIImagePickerController()
+//                picker.sourceType = type
+//                //picker.mediaTypes = [kUTTypeImage as String]
+//                picker.delegate = self
+//                self.present(picker, animated: true)
+ }
+        
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any])
+//         {
+//             guard let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage,
+//                   let detector = CIDetector(ofType: CIDetectorTypeQRCode,
+//                                             context: nil,
+//                                             options: [CIDetectorAccuracy: CIDetectorAccuracyHigh]),
+//                   let ciImage = CIImage(image: pickedImage),
+//                   let features = detector.features(in: ciImage) as? [CIQRCodeFeature] else { return }
+//             let qrCodeLink = features.reduce("") { $0 + ($1.messageString ?? "") }
+//             self.db.collection("Slots").document(qrCodeLink).setData([ "SlotStatus": "B" ], merge: true) { err in
+//                 if ( err == nil )
+//                 {
+//                     //self.ShowMessage(msg:"Success.");
+//                     Loaf("Success.",state:.success,sender:self).show()
+//                     picker.dismiss(animated: true, completion: nil)
+//                 }
+//                 else
+//                 {
+//                     //self.ShowMessage(msg:"Failed.");
+//                     Loaf("Failed.",state:.error,sender:self).show()
+//                 }
+//                 let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//                                 let newViewController = storyBoard.instantiateViewController(withIdentifier: "tbBarController") as! UITabBarController
+//                                 newViewController.modalPresentationStyle = .fullScreen
+//                                         self.present(newViewController, animated: true, completion: nil)
+//             }
+//
+//         }
+//
+//   func imagePickerControllerDidCancel(_ picker: UIImagePickerController)
+//   {
+//       print("Canceled.")
+//   }
+//
+//    func ShowMessage(msg : String) -> Void {
+//          let alert = UIAlertController(title: "Info", message: msg, preferredStyle: UIAlertController.Style.alert)
+//          alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+//          self.present(alert, animated: true, completion: nil)
+//      }
+//
+    
+    
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects.count == 0 {
@@ -93,7 +147,7 @@ class QRViewController: UIViewController {
                // messageLabel.text = metadataObj.stringValue
                 print(metadataObj.stringValue)
                 
-                self.db.collection("Slots").document(metadataObj.stringValue ?? "").setData([ "SlotStatus": "3" ], merge: true) { err in
+                self.db.collection("Slots").document(metadataObj.stringValue ?? "").setData([ "SlotStatus": "B" ], merge: true) { err in
                            if ( err == nil )
                            {
                                //self.ShowMessage(msg:"Success.");

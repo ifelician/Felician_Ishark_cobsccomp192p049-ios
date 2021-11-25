@@ -18,6 +18,7 @@ class BookingViewController: UIViewController , UITableViewDelegate, UITableView
     
     public var db: Firestore?
     static var mySlotID = ""
+    static var BtnTypeProperty = ""
     
     var SlotID  = [String]()
     var SlotName = [String]()
@@ -91,13 +92,28 @@ class BookingViewController: UIViewController , UITableViewDelegate, UITableView
         cell.btnBook.tag = Int(self.SlotID[indexPath.row])!;
         cell.btnBook.addTarget(self, action: #selector(buttonTapped2), for: .touchUpInside)
         
-        if(self.SlotStatus[indexPath.row] == "R")
+        cell.btnCancel.tag = Int(self.SlotID[indexPath.row])!;
+        cell.btnCancel.addTarget(self, action: #selector(btCancelTapped), for: .touchUpInside)
+        
+        if(self.SlotStatus[indexPath.row] == "A")
+               {
+                   cell.btnReserve.isHidden = false
+                   cell.btnBook.isHidden = false
+                   cell.btnCancel.isHidden = true
+               }
+        else if(self.SlotStatus[indexPath.row] == "R")
               {
-                  cell.btnBook.isHidden = true
+                 // cell.btnBook.isHidden = true
+                   cell.btnReserve.isHidden = true
+                   cell.btnBook.isHidden = false
+                   cell.btnCancel.isHidden = true
               }
        else if(self.SlotStatus[indexPath.row] == "B")
               {
-                  cell.btnReserve.isHidden = true
+                  //cell.btnBook.isHidden = true //btnBook==btnReserve
+                   cell.btnReserve.isHidden = true
+                   cell.btnBook.isHidden = true
+                   cell.btnCancel.isHidden = false
               }
         
         cell.layer.borderWidth = 2
@@ -112,6 +128,7 @@ class BookingViewController: UIViewController , UITableViewDelegate, UITableView
           alrt.addAction(UIAlertAction(title: "ok",style: .cancel,handler: nil))
           self.present(alrt, animated: true)
           BookingViewController.mySlotID = String(_sender.tag);
+          BookingViewController.BtnTypeProperty = "Booking";
       }
       @objc func buttonTapped2(_sender: UIButton)
       {
@@ -120,6 +137,15 @@ class BookingViewController: UIViewController , UITableViewDelegate, UITableView
 
           alrt.addAction(UIAlertAction(title: "ok",style: .cancel,handler: nil))
           self.present(alrt, animated: true)
+      }
+    
+    @objc func btCancelTapped(_sender: UIButton)
+      {
+          let alrt = UIAlertController(title: "test2", message: "test2", preferredStyle: .alert)
+          alrt.addAction(UIAlertAction(title: "ok",style: .cancel,handler: nil))
+          self.present(alrt, animated: true)
+          BookingViewController.mySlotID = String(_sender.tag);
+          BookingViewController.BtnTypeProperty = "Cancel";
       }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
